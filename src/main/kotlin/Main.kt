@@ -6,6 +6,7 @@ fun main() {
     val size = setValue()  // 입력받은 수의 개수를 의미
     println("수를 입력하세요.")
     val list = mutableListOf<Int>()
+    // Copilot으로 작성된 for문
     for (i in 0 until size) {
         print("${i + 1}번째 수 : ")
         list.add(setValue())
