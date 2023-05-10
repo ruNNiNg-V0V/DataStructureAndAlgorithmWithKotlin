@@ -21,4 +21,10 @@ class ValueGetter {
         }
         return mid
     }
+
+    val theList = listOf(1, 2, 3, 4, 5, 6)
+
+    // get the middle element if the list is odd get the two middle elements if the list is even
+    val middle = theList.subList(theList.size / 2 - 1, theList.size / 2 + 1) // Copilot으로 작성된 중앙값 구하기
+
 }
