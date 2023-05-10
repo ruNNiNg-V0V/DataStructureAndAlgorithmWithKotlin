@@ -10,6 +10,7 @@ fun main() {
         print("${i + 1}번째 수 : ")
         list.add(setValue())
     }
+    list.sort()
     val valueGetter = ValueGetter()
     println("최대값 : ${valueGetter.getMax(list)}")
     println("중앙값 : ${valueGetter.getMid(list)}")
