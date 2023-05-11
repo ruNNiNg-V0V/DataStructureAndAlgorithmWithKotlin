@@ -1,4 +1,5 @@
 import chapter.one.ValueGetter
+import chapter.two.DayOfYear
 
 fun main() {
     println("최대값/중앙값/최소값을 구합니다.")
@@ -16,6 +17,9 @@ fun main() {
     println("최대값 : ${valueGetter.getMax(list)}")
     println("중앙값 : ${valueGetter.getMid(list)}")
     println("최소값 : ${valueGetter.getMin(list)}")
+
+    val dayOfYear = DayOfYear()
+    println("그 해 경과 일 수를 구합니다, ${dayOfYear.getDayOfYear(2021, 3, 4)}")
 }
 
 fun setValue(): Int {
