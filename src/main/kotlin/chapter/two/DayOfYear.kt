@@ -1,25 +1,26 @@
 package chapter.two
 
-import java.time.Year.isLeap
+import java.time.LocalDate
 
+// 한 해의 지난 날 수를 구합니다
 class DayOfYear {
-    // 한 해의 지난 날 수를 구합니다
-    fun getDayOfYear(year: Int, month: Int, day: Int): Int {
-        var days = day // 일 수
-
-        // 1월~(month-1)월의 일 수를 더합니다.
-        for (i in 1 until month) {
-            days += getMonthDays(year, i)
-        }
-        return days
+    // 오늘이 올해의 몇 일 째인가 구합니다
+    fun getPassedDays(year: Int, month: Int, dayOfMonth: Int): Int {
+        val theDay = LocalDate.of(year, month, dayOfMonth)
+        return theDay.dayOfYear
     }
 
-    private fun getMonthDays(year: Int, i: Int): Int {
-        return when (i) {
-            1, 3, 5, 7, 8, 10, 12 -> 31
-            4, 6, 9, 11 -> 30
-            2 -> if (isLeap(year.toLong())) 29 else 28
-            else -> 0
-        }
+    /*
+    Copilot으로 작성된 위의 코드
+    날짜를 입력 받고 그 해의 지난 날 수를 구합니다
+    */
+    fun getPassedDaysByCopilot(): Int {
+        print("오늘의 연도를 입력하세요 : ")
+        val year = readln().toInt()
+        print("오늘의 월을 입력하세요 : ")
+        val month = readln().toInt()
+        print("오늘의 일을 입력하세요 : ")
+        val dayOfMonth = readln().toInt()
+        return getPassedDays(year, month, dayOfMonth)
     }
 }

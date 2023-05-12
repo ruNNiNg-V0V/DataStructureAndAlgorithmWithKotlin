@@ -27,8 +27,8 @@ class ValueGetter {
     // get the middle element if the list is odd get the two middle elements if the list is even
     val middle = theList.subList(theList.size / 2 - 1, theList.size / 2 + 1) // Copilot으로 작성된 중앙값 구하기
 
-    // the funtion return boolean value, if even is true, if odd is false
+    // return boolean value, if even is true, if odd is false
     fun isEven(i: Int): Boolean {
-        return i % 2 == 0
+        return i % 2 == 0 // Copilot으로 작성된 짝수/홀수 판별
     }
 }
