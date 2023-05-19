@@ -1,6 +1,5 @@
 import chapter.one.ValueGetter
-import chapter.two.DayOfYear
-import chapter.two.Physical
+import chapter.two.*
 
 fun main() {
     print("실행할 챕터를 입력하세요 : ")
