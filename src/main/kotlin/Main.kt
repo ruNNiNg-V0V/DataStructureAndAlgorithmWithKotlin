@@ -1,4 +1,5 @@
 import chapter.one.ValueGetter
+import chapter.three.LinearSearch
 import chapter.two.*
 
 fun main() {
@@ -51,6 +52,18 @@ fun main() {
                     println("시력 분포 : ${physical.getVisionDistribution()}")
                     println("혈액형 분포 : ${physical.getBloodTypeDistribution()}")
                 }
+
+
+            }
+        }
+
+        3 -> {
+            LinearSearch().apply {
+                setList()
+                println("생성된 배열 : ${getList()}")
+                print("검색할 값을 입력하세요 : ")
+                val theValue = setValue()
+                println("검색된 값의 인덱스 : ${search(theValue)}")
             }
         }
 
