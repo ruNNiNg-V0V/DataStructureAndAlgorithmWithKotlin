@@ -16,27 +16,52 @@ class Physical {
 
     fun setName(): String {
         print("이름 : ")
-        return readln()
+        return try {
+            readln()
+        } catch (e: Exception) {
+            println("잘못된 입력입니다.")
+            setName()
+        }
     }
 
     fun setHeight(): Int {
         print("키 : ")
-        return readln().toInt()
+        return try {
+            readln().toInt()
+        } catch (e: Exception) {
+            println("잘못된 입력입니다.")
+            setHeight()
+        }
     }
 
     fun setWeight(): Int {
         print("몸무게 : ")
-        return readln().toInt()
+        return try {
+            readln().toInt()
+        } catch (e: Exception) {
+            println("잘못된 입력입니다.")
+            setWeight()
+        }
     }
 
     fun setVision(): Double {
         print("시력 : ")
-        return readln().toDouble()
+        return try {
+            readln().toDouble()
+        } catch (e: Exception) {
+            println("잘못된 입력입니다.")
+            setVision()
+        }
     }
 
     fun setBloodType(): String {
         print("혈액형 : ")
-        return readln()
+        return try {
+            readln()
+        } catch (e: Exception) {
+            println("잘못된 입력입니다.")
+            setBloodType()
+        }
     }
 
     // 키의 평균갑 구하기

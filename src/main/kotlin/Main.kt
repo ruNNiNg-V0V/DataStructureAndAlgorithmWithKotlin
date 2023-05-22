@@ -59,5 +59,10 @@ fun main() {
 }
 
 fun setValue(): Int {
-    return readln().toInt()
+    return try {
+        readln().toInt()
+    } catch (e: Exception) {
+        println("숫자를 입력해주세요.")
+        setValue()
+    }
 }
