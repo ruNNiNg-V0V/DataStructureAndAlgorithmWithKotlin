@@ -1,4 +1,5 @@
 import chapter.one.ValueGetter
+import chapter.three.BinarySearch
 import chapter.three.LinearSearch
 import chapter.two.*
 
@@ -58,13 +59,33 @@ fun main() {
         }
 
         3 -> {
-            LinearSearch().apply {
-                setList()
-                println("생성된 배열 : ${getList()}")
-                print("검색할 값을 입력하세요 : ")
-                val theValue = setValue()
-                println("검색된 값의 인덱스 : ${search(theValue)}")
+            //챕터 3
+            println("실행할 프로그램을 선택하세요")
+            print("1. LinearSearch, 2. BinarySearch : ")
+            when (setValue()) {
+                1 -> {
+                    LinearSearch().apply {
+                        setList()
+                        println("생성된 배열 : ${getList()}")
+                        print("검색할 값을 입력하세요 : ")
+                        val theValue = setValue()
+                        println("검색된 값의 인덱스 : ${search(theValue)}")
+                    }
+                }
+
+                2 -> {
+                    BinarySearch().apply {
+                        print("몇 개의 수를 가진 배열을 만들까요? : ")
+                        val size = setValue()
+                        setList(size)
+                        println("생성된 배열 : ${getList()}")
+                        print("검색할 값을 입력하세요 : ")
+                        val theValue = setValue()
+                        println("검색된 값의 인덱스 : ${binarySearch(theValue)}")
+                    }
+                }
             }
+
         }
 
         else -> println("챕터를 잘못 입력하셨습니다.")
