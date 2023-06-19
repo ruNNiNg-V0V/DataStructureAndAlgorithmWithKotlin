@@ -7,11 +7,22 @@ class LinearSearch {
 
     fun setList() {
         print("난수를 갖는 배열을 만듭니다, 몇 개의 수를 가집니까? : ")
-        val size = readln().toInt()
+        var size = readln().toIntOrNull()
+        while (size == null || size <= 0) {
+            println("잘못된 입력입니다, ")
+            print("난수를 갖는 배열을 만듭니다, 몇 개의 수를 가집니까? : ")
+            size = readln().toIntOrNull()
+        }
         for (i in 0 until size) {
-            list.add((Math.random() * 100).toInt())
+            var randomNumber: Int
+            // 난수를 생성, list에 있는 경우 다시 생성
+            do {
+                randomNumber = (Math.random() * 100).toInt()
+            } while (randomNumber in list)
+            list.add(randomNumber)
         }
     }
+
 
     fun getList(): List<Int> {
         return list
