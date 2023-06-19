@@ -70,7 +70,7 @@ class Physical {
     fun setBloodType(): String {
         print("혈액형을 선택해주세요 : 1.A, 2.B, 3.O, 4.AB ")
         var bloodType = readln().toIntOrNull()
-        while (bloodType == null || bloodType !in 1..4) {
+        while (bloodType !in 1..4) {
             println("잘못된 입력입니다.")
             print("혈액형을 선택해주세요 : 1.A, 2.B, 3.O, 4.AB ")
             bloodType = readln().toIntOrNull()
