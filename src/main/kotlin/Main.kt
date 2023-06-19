@@ -48,8 +48,8 @@ fun main() {
                     for (i in 0 until count) {
                         physical.setPerson()
                     }
-                    println("키 평균 : ${physical.getHeightAverage()}")
-                    println("몸무게 평균 : ${physical.getWeightAverage()}")
+                    println("키 평균 : ${String.format("%.2f", physical.getHeightAverage())}")
+                    println("몸무게 평균 : ${String.format("%.2f", physical.getWeightAverage())}")
                     println("시력 분포 : ${physical.getVisionDistribution()}")
                     println("혈액형 분포 : ${physical.getBloodTypeDistribution()}")
                 }

@@ -1,7 +1,7 @@
 package chapter.two
 
 data class Person(
-    val name: String, val height: Int, val weight: Int, val vision: Double, val bloodType: String
+    val name: String, val height: Double, val weight: Double, val vision: Double, val bloodType: String
 )
 
 class Physical {
@@ -11,56 +11,76 @@ class Physical {
     val list = mutableListOf<Person>()
 
     fun setPerson() {
-        list.add(Person(setName(), setHeight(), setWeight(), setVision(), setBloodType()))
+        val name = setName()
+        val height = setHeight()
+        val weight = setWeight()
+        val vision = setVision()
+        val bloodType = setBloodType()
+        list.add(Person(name, height, weight, vision, bloodType))
     }
 
     fun setName(): String {
         print("이름 : ")
-        return try {
-            readln()
-        } catch (e: Exception) {
+        var name = readln().trim()
+        while (name.isEmpty()) {
+            /**
+             * 재귀 함수 스택오버플로우 예외처리
+             * while 반복문을 사용하여 처리할 것
+             */
             println("잘못된 입력입니다.")
-            setName()
+            print("이름 : ")
+            name = readln().trim()
         }
+        return name
     }
 
-    fun setHeight(): Int {
-        print("키 : ")
-        return try {
-            readln().toInt()
-        } catch (e: Exception) {
+    fun setHeight(): Double {
+        print("키(cm) : ")
+        var height = readln().toDoubleOrNull()
+        while (height == null) {
             println("잘못된 입력입니다.")
-            setHeight()
+            print("키(cm) : ")
+            height = readln().toDoubleOrNull()
         }
+        return height
     }
 
-    fun setWeight(): Int {
-        print("몸무게 : ")
-        return try {
-            readln().toInt()
-        } catch (e: Exception) {
+    fun setWeight(): Double {
+        print("몸무게(kg) : ")
+        var weight = readln().toDoubleOrNull()
+        while (weight == null) {
             println("잘못된 입력입니다.")
-            setWeight()
+            print("몸무게(kg) : ")
+            weight = readln().toDoubleOrNull()
         }
+        return weight
     }
 
     fun setVision(): Double {
         print("시력 : ")
-        return try {
-            readln().toDouble()
-        } catch (e: Exception) {
+        var vision = readln().toDoubleOrNull()
+        while (vision == null) {
             println("잘못된 입력입니다.")
-            setVision()
+            print("시력 : ")
+            vision = readln().toDoubleOrNull()
         }
+        return vision
     }
 
     fun setBloodType(): String {
-        print("혈액형 : ")
-        return try {
-            readln()
-        } catch (e: Exception) {
+        print("혈액형을 선택해주세요 : 1.A, 2.B, 3.O, 4.AB ")
+        var bloodType = readln().toIntOrNull()
+        while (bloodType == null || bloodType !in 1..4) {
             println("잘못된 입력입니다.")
-            setBloodType()
+            print("혈액형을 선택해주세요 : 1.A, 2.B, 3.O, 4.AB ")
+            bloodType = readln().toIntOrNull()
+        }
+        return when (bloodType) {
+            1 -> "A"
+            2 -> "B"
+            3 -> "O"
+            4 -> "AB"
+            else -> "O"
         }
     }
 
@@ -75,13 +95,11 @@ class Physical {
     }
 
     fun getHeightAverage(): Double {
-        val avg = list.map { it.height }.average()
-        return String.format("%.2f", avg).toDouble()
+        return list.map { it.height }.average()
     }
 
     fun getWeightAverage(): Double {
-        val avg = list.map { it.weight }.average()
-        return String.format("%.2f", avg).toDouble()
+        return list.map { it.weight }.average()
     }
 
     // vision의 분포 구하기
